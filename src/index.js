@@ -71,7 +71,7 @@ function autoDraw(e) {
       currentSquare = document.getElementById(`square-${squareNum}`);
       currentSquare.style.backgroundColor = color;
       squareNum = pickNewSquare(squareNum);
-    }, 250);
+    }, 10);
     drawing = true;
   }
 }
@@ -86,9 +86,10 @@ function pickNewSquare(squareNum) {
   direction = newDirection;
 
   colorCounter++;
-  if (colorCounter > 4) {
+  if (colorCounter > 19) {
     colorCounter = 0;
     color = pickRandomColor();
+    colorInput.value = color;
   }
 
   if (direction === 0 && squareNum > gridSize) return squareNum - gridSize;
