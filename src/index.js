@@ -3,6 +3,7 @@ const newGridButton = document.getElementById("newGridButton");
 const autoDrawButton = document.getElementById("autoDrawButton");
 const colorInput = document.getElementById("colorPicker");
 const borderSelect = document.getElementById('borderSelect');
+const gridSlider = document.getElementById('gridSlider');
 let gridSize = 16;
 let totalSize = gridSize * gridSize;
 let color = "#BB3333";
@@ -23,10 +24,13 @@ addHoverListeners();
 newGridButton.addEventListener("click", setNewGrid);
 autoDrawButton.addEventListener("click", autoDraw);
 colorInput.addEventListener("change", (e) => (color = e.target.value));
+gridSlider.addEventListener('change', (e) => {
+  document.getElementById('gridSizeValue').textContent = e.target.value
+})
 
 function setNewGrid(e) {
   e.preventDefault();
-  gridSize = Number(document.getElementById("gridSize").value);
+  gridSize = Number(document.getElementById("gridSlider").value);
   totalSize = gridSize * gridSize;
   squareNum = Math.floor(Math.random() * totalSize) + 1;
   removeChildNodes(container);
