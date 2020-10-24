@@ -9,11 +9,11 @@
 <body>
   <div id="mainContainer">
     <header>
-      <form id="formContainer">
+      <form class="formContainer">
         <div>
-          <label for="gridSize">Size of Grid (n x n) </label>
-          <input id="gridSlider" type="range" value='16' max='150' min='4' />
-          <span id="gridSizeValue">16</span>
+          <label for="gridSizeSlider">Grid Size </label>
+          <input id="gridSizeSlider" type="range" value='16' max='150' min='4' />
+          <span id="gridSizeValue">16 x 16</span>
         </div>
         <div>
           <label for="borderSelect">Borders </label>
@@ -24,11 +24,21 @@
           <input id="colorPicker" value="#BB3333" type='color'>
         </div>
         <button id="newGridButton">New sketch board</button>
-      </form>
-    </header>
-    <button id="autoDrawButton">Start Autodraw</button>
+        <div>          
+          <label for="autoSpeedSlider">Auto Speed</label>
+          <input id="autoSpeedSlider" type="range" value='250' max='1500' min='5' />
+          <span id="autoSpeedValue">250ms/tick</span>
+        </div>
+        <div>
+          <label for="colorCountSlider">Same color </label>
+          <input id="colorCountSlider" type="range" value='10' max='100' min='1' />
+          <span id="colorCountValue">10 turns</span>
+        </div>
+        <button id="autoDrawButton">Start Autodraw</button>
+    </form>
+  </header>
 
-    <div id="gridContainer"></div>
+      <div id="gridContainer"></div>
   </div>
 
   <script src="index.js"></script>

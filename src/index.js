@@ -3,7 +3,9 @@ const newGridButton = document.getElementById("newGridButton");
 const autoDrawButton = document.getElementById("autoDrawButton");
 const colorInput = document.getElementById("colorPicker");
 const borderSelect = document.getElementById('borderSelect');
-const gridSlider = document.getElementById('gridSlider');
+const gridSlider = document.getElementById('gridSizeSlider');
+const autoSpeedSlider = document.getElementById('autoSpeedSlider');
+const colorCountSlider = document.getElementById('colorCountSlider');
 let gridSize = 16;
 let totalSize = gridSize * gridSize;
 let color = "#BB3333";
@@ -24,8 +26,14 @@ addHoverListeners();
 newGridButton.addEventListener("click", setNewGrid);
 autoDrawButton.addEventListener("click", autoDraw);
 colorInput.addEventListener("change", (e) => (color = e.target.value));
-gridSlider.addEventListener('change', (e) => {
-  document.getElementById('gridSizeValue').textContent = e.target.value
+gridSizeSlider.addEventListener('change', (e) => {
+  document.getElementById('gridSizeValue').textContent = `${e.target.value} x ${e.target.value}`
+})
+autoSpeedSlider.addEventListener('change', (e) => {
+  document.getElementById('autoSpeedValue').textContent = `${e.target.value}ms/tick`
+})
+colorCountSlider.addEventListener('change', (e) => {
+  document.getElementById('colorCountValue').textContent = `${e.target.value} turns`
 })
 
 function setNewGrid(e) {
@@ -77,7 +85,7 @@ function autoDraw(e) {
       currentSquare = document.getElementById(`square-${squareNum}`);
       currentSquare.style.backgroundColor = color;
       squareNum = pickNewSquare(squareNum);
-    }, 1);
+    }, autoSpeedSlider.value);
     drawing = true;
   }
 }

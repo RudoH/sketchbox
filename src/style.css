@@ -4,7 +4,7 @@ body {
 
 header {
   display: flex;
-  height: 50px;
+  height: 75px;
   background-color: rgba(43, 61, 223, 0.014);
   margin: 20px;
   border-radius: 5px;
@@ -21,6 +21,10 @@ button {
   color: rgb(83, 5, 5);
 }
 
+button:hover {
+  background: rgba(48, 219, 14, 0.589);
+}
+
 #mainContainer {
   margin: auto;
   display: flex;
@@ -29,17 +33,22 @@ button {
   justify-content: center;
 }
 
-#formContainer {
+.formContainer {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-evenly;
 }
 
-#formContainer > div {
+.formContainer > div {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.vertical {
+  flex-direction: column;
 }
 
 input {
