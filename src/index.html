@@ -12,16 +12,21 @@
       <form id="formContainer">
         <div>
           <label for="gridSize">Size of Grid (n x n) </label>
-          <input id="gridSize" type='number' value=16 max=100 min=4 />
+          <input id="gridRange" type="range" value='16' max='100' min='4' />
+          <input id="gridSize" type='number' value='16' max='100' min='4' />
+        </div>
+        <div>
+          <label for="borderSelect">Borders </label>
+          <input id="borderSelect" type='checkbox' value='borders' checked>  
         </div>
         <div>
           <label for="colorPicker">Color </label>
           <input id="colorPicker" value="#BB3333" type='color'>
         </div>
         <button id="newGridButton">New sketch board</button>
-        <button id="autoDrawButton">Start Autodraw</button>
       </form>
     </header>
+    <button id="autoDrawButton">Start Autodraw</button>
 
     <div id="gridContainer"></div>
   </div>

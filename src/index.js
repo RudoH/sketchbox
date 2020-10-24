@@ -2,6 +2,7 @@ const container = document.getElementById("gridContainer");
 const newGridButton = document.getElementById("newGridButton");
 const autoDrawButton = document.getElementById("autoDrawButton");
 const colorInput = document.getElementById("colorPicker");
+const borderSelect = document.getElementById('borderSelect');
 let gridSize = 16;
 let totalSize = gridSize * gridSize;
 let color = "#BB3333";
@@ -37,9 +38,10 @@ function createGrid() {
   for (let i = 1; i <= gridSize * gridSize; i++) {
     const square = document.createElement("div");
     square.classList.add("square");
+    if (borderSelect.checked) square.classList.add("border")
     square.setAttribute("id", `square-${i}`);
-    square.style.width = `${(750 - gridSize * 2) / gridSize}px`;
-    square.style.height = `${(750 - gridSize * 2) / gridSize}px`;
+    square.style.width = `${(750 - (borderSelect.checked && gridSize * 2)) / gridSize}px`;
+    square.style.height = `${(750 - (borderSelect.checked && gridSize * 2)) / gridSize}px`;
     container.appendChild(square);
   }
 }
@@ -71,7 +73,7 @@ function autoDraw(e) {
       currentSquare = document.getElementById(`square-${squareNum}`);
       currentSquare.style.backgroundColor = color;
       squareNum = pickNewSquare(squareNum);
-    }, 10);
+    }, 1);
     drawing = true;
   }
 }

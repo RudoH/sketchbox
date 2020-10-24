@@ -58,5 +58,8 @@ input {
 
 .square {
   background-color: white;
+}
+
+.border {
   border: 1px solid gray;
 }
