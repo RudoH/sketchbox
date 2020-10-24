@@ -10,6 +10,7 @@ let gridSize = 16;
 let totalSize = gridSize * gridSize;
 let color = "#BB3333";
 let colorCounter = 0;
+let colorCountMax = 10;
 let mouseDown = false;
 let drawing = false;
 let autoDrawInterval;
@@ -38,7 +39,7 @@ colorCountSlider.addEventListener('change', (e) => {
 
 function setNewGrid(e) {
   e.preventDefault();
-  gridSize = Number(document.getElementById("gridSlider").value);
+  gridSize = Number(gridSlider.value);
   totalSize = gridSize * gridSize;
   squareNum = Math.floor(Math.random() * totalSize) + 1;
   removeChildNodes(container);
@@ -100,7 +101,7 @@ function pickNewSquare(squareNum) {
   direction = newDirection;
 
   colorCounter++;
-  if (colorCounter > 19) {
+  if (colorCounter > colorCountSlider.value) {
     colorCounter = 0;
     color = pickRandomColor();
     colorInput.value = color;
