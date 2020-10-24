@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="mainContainer">
+    <header>
+      <form id="formContainer">
+        <div>
+          <label for="gridSize">Size of Grid (n x n) </label>
+          <input id="gridSize" type='number' value=16 max=100 min=4 />
+        </div>
+        <div>
+          <label for="colorPicker">Color </label>
+          <input id="colorPicker" value="#BB3333" type='color'>
+        </div>
+        <button id="newGridButton">New sketch board</button>
+        <button id="autoDrawButton">Start Autodraw</button>
+      </form>
+    </header>
+
+    <div id="gridContainer"></div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
